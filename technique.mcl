@@ -1,0 +1,12 @@
+
+
+import "generic_methods/file_methods.mcl" as * 
+
+
+class technique ($directive_id str, $rule_id str, $audit_mode bool) {
+
+  include file_enforce_content("/tmp/test","Hello!!!")
+
+  include file_enforce_content("/tmp/test2","Hello2!!!")
+
+}

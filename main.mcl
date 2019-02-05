@@ -1,0 +1,5 @@
+
+
+import "technique.mcl" as * 
+
+include technique("uuid1","uuid2", false)

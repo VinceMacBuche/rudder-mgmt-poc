@@ -1,0 +1,19 @@
+
+import "datetime"
+
+class file_enforce_content($file_name str, $file_content str) {
+
+  file $file_name {
+      content => $file_content
+    , state => "exists"
+    , Notify => Exec["report ${file_name}"]
+    , 
+  }
+
+  exec "report ${file_name}" {
+    cmd => "echo '[${datetime.print(datetime.now())} fixed file ${file_name}' > /tmp/mgmt-report",
+    ifcmd => "true",
+  }
+
+}
+
